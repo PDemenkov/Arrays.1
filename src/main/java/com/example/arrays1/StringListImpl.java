@@ -4,7 +4,7 @@ import java.io.FilterOutputStream;
 import java.util.ArrayList;
 
 
-public class StringListImpl implements StringList  {
+public class StringListImpl implements StringList {
     ArrayList<String> list = new ArrayList<>(2);
 
     @Override
@@ -50,7 +50,7 @@ public class StringListImpl implements StringList  {
             throw new RuntimeException();
         } else list.remove(index);
         System.out.println("Deleted on index " + index);
-    return String.valueOf(index);
+        return String.valueOf(index);
     }
 
     @Override
@@ -65,7 +65,8 @@ public class StringListImpl implements StringList  {
             System.out.println(list.indexOf(item));
         } else {
             System.out.println("-1");
-        } return Integer.parseInt(item);
+        }
+        return Integer.parseInt(item);
     }
 
     @Override
@@ -74,7 +75,8 @@ public class StringListImpl implements StringList  {
             System.out.println(lastIndexOf(item));
         } else {
             System.out.println("-1");
-        } return Integer.parseInt(item);
+        }
+        return Integer.parseInt(item);
     }
 
     @Override
@@ -83,32 +85,44 @@ public class StringListImpl implements StringList  {
             throw new RuntimeException();
         } else {
             System.out.println(list.get(index));
-        } return String.valueOf(index);
+        }
+        return String.valueOf(index);
     }
 
     @Override
     public boolean equals(StringList otherList) {
-        return false;
+        if (otherList == null) {
+            throw new RuntimeException();
+        }
+        if (list.equals(otherList)) {
+            System.out.println(true);
+        } else System.out.println(false);
+        return otherList.isEmpty();
     }
 
     @Override
     public int size() {
+        System.out.println(list.size());
         return 0;
     }
 
     @Override
     public boolean isEmpty() {
+        if (list.isEmpty()) {
+            System.out.println(true);
+        } else System.out.println(false);
         return false;
     }
 
     @Override
     public void clear() {
-
+        list.clear();
     }
 
     @Override
     public String[] toArray() {
-        return new String[0];
+        list.toArray();
+        return new String[2];
     }
 
     @Override

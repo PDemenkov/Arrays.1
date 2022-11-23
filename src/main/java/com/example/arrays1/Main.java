@@ -1,8 +1,12 @@
 package com.example.arrays1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         StringListImpl stringList = new StringListImpl();
+        StringListImpl str2 = new StringListImpl();
         stringList.add("Stroka1");
         System.out.println(stringList);
 
@@ -31,7 +35,16 @@ public class Main {
 
         stringList.get(0);
 
+        stringList.equals(str2);
 
+        stringList.size();
+
+        stringList.isEmpty();
+
+        stringList.clear();
+        System.out.println("stringList = " + stringList);
+
+        System.out.println("stringList.toArray() = " + Arrays.toString(stringList.toArray()));
 
     }
 }
