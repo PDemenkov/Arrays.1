@@ -69,6 +69,7 @@ class StringListImplTest {
         assertThrows(InvalidIndexException.class, () -> (new StringListImpl()).remove(1));
         assertThrows(InvalidIndexException.class, () -> (new StringListImpl()).remove(-1));
     }
+
     @Test
     void testRemoveWhenDeleted() {
         StringListImpl stringListImpl = new StringListImpl();
@@ -134,6 +135,7 @@ class StringListImplTest {
         assertEquals(-1, stringListImpl.lastIndexOf("Item"));
     }
 
+
     @Test
     void testGet() {
         assertThrows(InvalidIndexException.class, () -> (new StringListImpl()).get(1));
@@ -155,6 +157,11 @@ class StringListImplTest {
     }
 
     @Test
+    void size() {
+        assertEquals(0, (new StringListImpl()).size());
+    }
+
+    @Test
     void testIsEmpty() {
         assertTrue((new StringListImpl()).isEmpty());
     }
@@ -166,6 +173,13 @@ class StringListImplTest {
         assertFalse(stringListImpl.isEmpty());
     }
 
+    @Test
+    void clear() {
+        StringListImpl actualStringListImpl = new StringListImpl();
+        actualStringListImpl.clear();
+        assertTrue(actualStringListImpl.isEmpty());
+        assertEquals(0, actualStringListImpl.size());
+    }
 
     @Test
     void testToArray() {
